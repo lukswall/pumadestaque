@@ -34,28 +34,26 @@ session_start();
 			</font>
 		</div>
 
-		<!-- <form action="enviar-trabalhe-conosco.php" method="post" onsubmit="return checkForm()"> -->
-		<form action="enviar-trabalhe-conosco.php" method="post" enctype="multipart/form-data">
-
+		<form action="enviar-trabalhe-conosco.php" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
 			<div class="cor">
 				<div id="login">
 					<div>
 						<p> Nome:* </p>
-						<input id="nome-login" type="text" name="nome" autocomplete="off" /><br>
+						<input id="nome-login" class="required" type="text" name="nome" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> E-mail:* </p>
-						<input id="nome-login" type="mail" name="email" autocomplete="off" /><br>
+						<input id="nome-login" type="mail" class="required" name="email" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> Telefone:* </p>
-						<input id="nome-login" type="tel" name="telefone" autocomplete="off" /><br>
+						<input id="nome-login" type="tel" class="required" name="telefone" autocomplete="off" /><br>
 					</div>
 					<div>
 						<p id="cur">Envie seu currículo em PDF</p>
-						<input class="file" type="file" name="curriculo" accept=".pdf">
+						<input class="file required" type="file" name="curriculo" accept=".pdf">
 					</div><br>
 
 					<button class="button-login">Enviar</button>
@@ -87,7 +85,7 @@ session_start();
 		</div>
 	</div><br>
 
-	<!-- <script src="./js/formValidation.js"></script> -->
+	<script src="./js/formValidation.js"></script>
 </body>
 
 </html>

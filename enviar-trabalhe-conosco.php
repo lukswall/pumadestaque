@@ -6,8 +6,8 @@ require_once('src/PHPMailer.php');
 require_once('src/SMTP.php');
 require_once('src/Exception.php');
 
-$userName = '';
-$password = '';
+$userName = 'dgldoge1@gmail.com';
+$password = 'newDgl150598';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -21,8 +21,8 @@ $data = date('d/m/Y H:i:s');
 
 if ($nome && $telefone && $email && $anexo) {
 
-  // Html que será enviado para o email //
-  $emailBody = "
+    // Html que será enviado para o email //
+    $emailBody = "
   <html>
       <body style='margin: 0; padding: 0;'>
       <table border='0' cellpadding='0' cellspacing='0' width='100%'>
@@ -83,33 +83,33 @@ if ($nome && $telefone && $email && $anexo) {
      </body>
   </html>
   ";
-  // ---------------------------------- //
+    // ---------------------------------- //
 
-  $mail = new PHPMailer();
+    $mail = new PHPMailer();
 
-  $mail->isSMTP(true);
-  $mail->Host = 'smtp.gmail.com';
-  $mail->SMTPAuth = true;
-  $mail->Username = $userName;
-  $mail->Password = $password;
-  $mail->Port = 587;
+    $mail->isSMTP(true);
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = $userName;
+    $mail->Password = $password;
+    $mail->Port = 587;
 
-  $mail->setFrom($userName);
-  $mail->addAddress('dglboy@gmail.com');
-  $mail->addAddress('luks_2003@outlook.com');
+    $mail->setFrom($userName);
+    $mail->addAddress('dglboy@gmail.com');
+    //   $mail->addAddress('luks_2003@outlook.com');
 
-  $mail->isHTML(true);
-  $mail->Subject = 'Envio de Curriculo';
-  $mail->Body = $emailBody;
-  $mail->addAttachment($anexo['tmp_name'], $anexo['name']);
+    $mail->isHTML(true);
+    $mail->Subject = 'Envio de Curriculo';
+    $mail->Body = $emailBody;
+    $mail->addAttachment($anexo['tmp_name'], $anexo['name']);
 
-  if ($mail->send()) {
-    $_SESSION["sendEmail"] = true;
+    if ($mail->send()) {
+        $_SESSION["sendEmail"] = true;
+        header("Location: trabalhe-conosco.php");
+        exit();
+    }
+} else {
+    $_SESSION["noSendEmail"] = true;
     header("Location: trabalhe-conosco.php");
     exit();
-  }
-} else {
-  $_SESSION["noSendEmail"] = true;
-  header("Location: trabalhe-conosco.php");
-  exit();
 }
