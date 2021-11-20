@@ -25,12 +25,12 @@ session_start();
 		<div class="div-tc">
 			<h2>Faça Parte da Nossa Equipe</h2>
 			<font class="tc">
-			  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-              placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-              placeat odit, accusamus ducimus voluptatum alias
-			  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-              placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-              placeat odit, accusamus ducimus voluptatum alias
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+				placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+				placeat odit, accusamus ducimus voluptatum alias
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+				placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+				placeat odit, accusamus ducimus voluptatum alias
 			</font>
 		</div>
 
@@ -40,27 +40,27 @@ session_start();
 				<div id="login">
 					<div>
 						<p> Nome: </p>
-						<input id="nome-login" type="text" name="nome" /><br>
+						<input id="nome-login" type="text" name="nome" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> E-mail:* </p>
-						<input class="required" id="nome-login" type="mail" name="email" /><br>
+						<input class="required" id="nome-login" type="mail" name="email" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> Telefone: </p>
-						<input id="nome-login" type="tel" name="telefone" /><br>
+						<input id="nome-login" type="tel" name="telefone" autocomplete="off" /><br>
 					</div>
 					<div>
-                        <p id="cur">Envie arquivo .pdf</p>
-                    <input class="file" type="file" name="curriculo" accept=".pdf">
+						<p id="cur">Envie arquivo .pdf</p>
+						<input class="file" type="file" name="curriculo" accept=".pdf">
 					</div><br>
 
 					<button class="button-login">Enviar</button>
 					<div>
 
-					
+
 						<?php
 						if (isset($_SESSION['sendEmail'])) {
 							echo ("<p>Recebemos o seu email, aguarde nosso contato</p>");
@@ -80,8 +80,8 @@ session_start();
 				Sala 1, 1°Andar
 
 			</p>
-            <p id="local">
-            <i class="fa fa-phone fa-3x" aria-hidden="true"></i></i><br>
+			<p id="local">
+				<i class="fa fa-phone fa-3x" aria-hidden="true"></i></i><br>
 				Whatsapp ou Telefone <br>(11) 95454-5454<br>
 
 			</p>

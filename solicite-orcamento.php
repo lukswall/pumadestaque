@@ -23,17 +23,17 @@ session_start();
 	<div class="inicio">
 		<h1> Solicite seu orçamento </h1>
 
-			<div class="div-tc">
-				<h2>NÃO PERCA TEMPO!</h2>
-				<font class="tc">
+		<div class="div-tc">
+			<h2>NÃO PERCA TEMPO!</h2>
+			<font class="tc">
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
 				placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
 				placeat odit, accusamus ducimus voluptatum alias
 				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
 				placeat odit, accusamus ducimus voluptatum alias Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
 				placeat odit, accusamus ducimus voluptatum alias
-				</font>
-			</div>
+			</font>
+		</div>
 
 		<form action="enviar.php" method="post" onsubmit="return checkForm()">
 
@@ -41,22 +41,22 @@ session_start();
 				<div id="login">
 					<div>
 						<p> Nome: </p>
-						<input id="solicite" type="text" name="nome" /><br>
+						<input id="solicite" type="text" name="nome" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> E-mail:* </p>
-						<input class="required" id="solicite" type="mail" name="email" /><br>
+						<input class="required" id="solicite" type="mail" name="email" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> Telefone: </p>
-						<input id="solicite" type="tel" name="telefone" /><br>
+						<input id="solicite" type="tel" name="telefone" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> Assunto:* </p>
-						<input class="required" id="solicite" type="subject" name="assunto" /><br>
+						<input class="required" id="solicite" type="subject" name="assunto" autocomplete="off" /><br>
 					</div>
 
 					<div>
@@ -67,7 +67,7 @@ session_start();
 					<button class="button-login">Enviar</button>
 					<div>
 
-					
+
 						<?php
 						if (isset($_SESSION['sendEmail'])) {
 							echo ("<p>Recebemos o seu email, aguarde nosso contato</p>");
