@@ -6,6 +6,9 @@ require_once('src/PHPMailer.php');
 require_once('src/SMTP.php');
 require_once('src/Exception.php');
 
+$userName = '';
+$password = '';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -19,55 +22,67 @@ $data = date('d/m/Y H:i:s');
 if ($nome && $telefone && $email && $anexo) {
 
   // Html que será enviado para o email //
-  $arquivo = "
-    <p>Nome: <strong>{$nome}</strong></p>
-    <p>Telefone: <strong>{$telefone}</strong></p>
-    <p>Email: <strong>{$email}</strong></p>
-    <p>Data: {$data}</p>";
-  // $arquivo = "
-  // <style type='text/css'>
-  // body {
-  // margin:0px;
-  // font-family:Verdane;
-  // font-size:12px;
-  // color: #666666;
-  // }
-  // a{
-  // color: #666666;
-  // text-decoration: none;
-  // }
-  // a:hover {
-  // color: #FF0000;
-  // text-decoration: none;
-  // }
-  // </style>
-  //   <html>
-  //       <table width='510' border='1' cellpadding='1' cellspacing='1' bgcolor='#CCCCCC'>
-  //           <tr>
-  //             <td>
-  // <tr>
-  //                <td width='500'>Nome:$nome</td>
-  //               </tr>
-  //               <tr>
-  //                 <td width='320'>E-mail:<b>$email</b></td>
-  //    </tr>
-  //     <tr>
-  //                 <td width='320'>Telefone:<b>$telefone</b></td>
-  //               </tr>
-  //    <tr>
-  //                 <td width='320'>Opções:$escolhas</td>
-  //               </tr>
-  //               <tr>
-  //                 <td width='320'>Mensagem:$nome</td>
-  //               </tr>
-  //           </td>
-  //         </tr>
-  //         <tr>
-  //           <td>Este e-mail foi enviado em <b>$data_envio</b> às <b>$hora_envio</b></td>
-  //         </tr>
-  //       </table>
-  //   </html>
-  // ";
+  $emailBody = "
+  <html>
+      <body style='margin: 0; padding: 0;'>
+      <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+       <tr>
+        <td>
+          <table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse: collapse;'>
+              <tr>
+                  <table align='center' border='0' cellpadding='0' cellspacing='0' width='600'>
+                      <tr>
+                          <td align='center' bgcolor=black style='padding: 40px 0 30px 0;'>
+                          </td>
+                      </tr>
+  
+                      <tr>
+                          <td bgcolor='#ffffff' style='padding: 40px 30px 40px 30px;'>
+                              <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+                               <tr>
+                                      <!-- aqui é o conteudo do email-->
+  
+                                      <tr border='0' cellpadding='0' cellspacing='0' width='100%'>
+  
+                                          <td>
+                                           <strong>Nome:</strong> {$nome}
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                          <strong>Email:</strong> {$email}
+                                          </td> 
+                                      </tr>
+                                      <tr>
+                                          <td>
+                                          <strong>Telefone:</strong> {$telefone}
+                                          </td>
+                                      </tr>                                  
+                                      <tr>
+                                          <td>
+                                          <strong>Data:</strong> {$data}
+                                          </td>
+                                      </tr>
+  
+                                     <!-- aqui é o conteudo do email-->
+                               </tr>
+                              </table>
+                             </td>
+                      </tr>
+  
+                      <tr>
+                          <td align='center' bgcolor=black style='padding: 40px 0 30px 0;'>
+                             </td>
+                      </tr>
+                  </table>
+              </tr>
+             </table>
+        </td>
+       </tr>
+      </table>
+     </body>
+  </html>
+  ";
   // ---------------------------------- //
 
   $mail = new PHPMailer();
@@ -75,17 +90,17 @@ if ($nome && $telefone && $email && $anexo) {
   $mail->isSMTP(true);
   $mail->Host = 'smtp.gmail.com';
   $mail->SMTPAuth = true;
-  $mail->Username = 'dgldoge1@gmail.com';
-  $mail->Password = 'senha';
+  $mail->Username = $userName;
+  $mail->Password = $password;
   $mail->Port = 587;
 
-  $mail->setFrom('dgldoge1@gmail.com');
+  $mail->setFrom($userName);
   $mail->addAddress('dglboy@gmail.com');
   $mail->addAddress('luks_2003@outlook.com');
 
   $mail->isHTML(true);
   $mail->Subject = 'Envio de Curriculo';
-  $mail->Body = $arquivo;
+  $mail->Body = $emailBody;
   $mail->addAttachment($anexo['tmp_name'], $anexo['name']);
 
   if ($mail->send()) {
