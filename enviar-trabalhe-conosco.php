@@ -76,7 +76,7 @@ if ($nome && $telefone && $email && $anexo) {
   $mail->Host = 'smtp.gmail.com';
   $mail->SMTPAuth = true;
   $mail->Username = 'dgldoge1@gmail.com';
-  $mail->Password = 'newDgl150598';
+  $mail->Password = 'senha';
   $mail->Port = 587;
 
   $mail->setFrom('dgldoge1@gmail.com');
