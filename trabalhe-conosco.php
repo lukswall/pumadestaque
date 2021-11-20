@@ -34,33 +34,32 @@ session_start();
 			</font>
 		</div>
 
-		<form action="enviar.php" method="post" onsubmit="return checkForm()">
+		<!-- <form action="enviar-trabalhe-conosco.php" method="post" onsubmit="return checkForm()"> -->
+		<form action="enviar-trabalhe-conosco.php" method="post" enctype="multipart/form-data">
 
 			<div class="cor">
 				<div id="login">
 					<div>
-						<p> Nome: </p>
+						<p> Nome:* </p>
 						<input id="nome-login" type="text" name="nome" autocomplete="off" /><br>
 					</div>
 
 					<div>
 						<p> E-mail:* </p>
-						<input class="required" id="nome-login" type="mail" name="email" autocomplete="off" /><br>
+						<input id="nome-login" type="mail" name="email" autocomplete="off" /><br>
 					</div>
 
 					<div>
-						<p> Telefone: </p>
+						<p> Telefone:* </p>
 						<input id="nome-login" type="tel" name="telefone" autocomplete="off" /><br>
 					</div>
 					<div>
-						<p id="cur">Envie arquivo .pdf</p>
+						<p id="cur">Envie seu currículo em PDF</p>
 						<input class="file" type="file" name="curriculo" accept=".pdf">
 					</div><br>
 
 					<button class="button-login">Enviar</button>
 					<div>
-
-
 						<?php
 						if (isset($_SESSION['sendEmail'])) {
 							echo ("<p>Recebemos o seu email, aguarde nosso contato</p>");
@@ -88,7 +87,7 @@ session_start();
 		</div>
 	</div><br>
 
-	<script src="./js/formValidation.js"></script>
+	<!-- <script src="./js/formValidation.js"></script> -->
 </body>
 
 </html>
