@@ -34,7 +34,7 @@ session_start();
 			</font>
 		</div>
 
-		<form action="enviar-trabalhe-conosco.php" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
+		<form action="./php/enviar-trabalhe-conosco.php" method="post" enctype="multipart/form-data" onsubmit="return checkForm()">
 			<div class="cor">
 				<div id="login">
 					<div>

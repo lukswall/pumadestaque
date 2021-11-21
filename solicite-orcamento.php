@@ -35,7 +35,7 @@ session_start();
 			</font>
 		</div>
 
-		<form action="enviar-solicite-orcamento.php" method="post" onsubmit="return checkForm()">
+		<form action="./php/enviar-solicite-orcamento.php" method="post" onsubmit="return checkForm()">
 
 			<div class="cor">
 				<div id="login">
