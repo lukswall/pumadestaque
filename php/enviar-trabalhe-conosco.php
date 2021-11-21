@@ -2,12 +2,12 @@
 session_start();
 date_default_timezone_set("America/Sao_Paulo");
 
-require_once('src/PHPMailer.php');
-require_once('src/SMTP.php');
-require_once('src/Exception.php');
+require_once('../src/PHPMailer.php');
+require_once('../src/SMTP.php');
+require_once('../src/Exception.php');
 
-$userName = 'dgldoge1@gmail.com';
-$password = 'newDgl150598';
+$userName = '';
+$password = '';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -96,7 +96,7 @@ if ($nome && $telefone && $email && $anexo) {
 
     $mail->setFrom($userName);
     $mail->addAddress('dglboy@gmail.com');
-    //   $mail->addAddress('luks_2003@outlook.com');
+    // $mail->addAddress('luks_2003@outlook.com');
 
     $mail->isHTML(true);
     $mail->Subject = 'Envio de Curriculo';
@@ -105,11 +105,11 @@ if ($nome && $telefone && $email && $anexo) {
 
     if ($mail->send()) {
         $_SESSION["sendEmail"] = true;
-        header("Location: trabalhe-conosco.php");
+        header("Location: ../trabalhe-conosco.php");
         exit();
     }
 } else {
     $_SESSION["noSendEmail"] = true;
-    header("Location: trabalhe-conosco.php");
+    header("Location: ../trabalhe-conosco.php");
     exit();
 }

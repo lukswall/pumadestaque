@@ -1,4 +1,5 @@
-# pumadestaque
-Puma Destaque em segurança
+# Puma - Destaque em Segurança
 
-<a href="https://lukswall.github.io/pumadestaque/">Acesse aqui</a>
+Para ver a aplicação no Heroku
+
+- <a  href="https://pumadestaque.herokuapp.com/">Click aqui</a>

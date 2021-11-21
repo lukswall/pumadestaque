@@ -2,9 +2,9 @@
 session_start();
 date_default_timezone_set("America/Sao_Paulo");
 
-require_once('src/PHPMailer.php');
-require_once('src/SMTP.php');
-require_once('src/Exception.php');
+require_once('../src/PHPMailer.php');
+require_once('../src/SMTP.php');
+require_once('../src/Exception.php');
 
 $userName = '';
 $password = '';
@@ -22,7 +22,7 @@ $data = date('d/m/Y H:i:s');
 
 if ($email && $assunto && $mensagem) {
 
-  $emailBody = "
+    $emailBody = "
 <html>
     <body style='margin: 0; padding: 0;'>
     <table border='0' cellpadding='0' cellspacing='0' width='100%'>
@@ -89,32 +89,32 @@ if ($email && $assunto && $mensagem) {
 </html>
 ";
 
-  // ---------------------------------- //
+    // ---------------------------------- //
 
-  $mail = new PHPMailer();
+    $mail = new PHPMailer();
 
-  $mail->isSMTP(true);
-  $mail->Host = 'smtp.gmail.com';
-  $mail->SMTPAuth = true;
-  $mail->Username = $userName;
-  $mail->Password = $password;
-  $mail->Port = 587;
+    $mail->isSMTP(true);
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = $userName;
+    $mail->Password = $password;
+    $mail->Port = 587;
 
-  $mail->setFrom($userName);
-  $mail->addAddress('dglboy@gmail.com');
-  $mail->addAddress('luks_2003@outlook.com');
+    $mail->setFrom($userName);
+    $mail->addAddress('dglboy@gmail.com');
+    // $mail->addAddress('luks_2003@outlook.com');
 
-  $mail->isHTML(true);
-  $mail->Subject = $assunto;
-  $mail->Body = $emailBody;
+    $mail->isHTML(true);
+    $mail->Subject = $assunto;
+    $mail->Body = $emailBody;
 
-  if ($mail->send()) {
-    $_SESSION["sendEmail"] = true;
-    header("Location: solicite-orcamento.php");
-    exit();
-  }
+    if ($mail->send()) {
+        $_SESSION["sendEmail"] = true;
+        header("Location: ../solicite-orcamento.php");
+        exit();
+    }
 } else {
-  $_SESSION["noSendEmail"] = true;
-  header("Location: solicite-orcamento.php");
-  exit();
+    $_SESSION["noSendEmail"] = true;
+    header("Location: ../solicite-orcamento.php");
+    exit();
 }
